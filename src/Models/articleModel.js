@@ -8,8 +8,9 @@ var schema = mongoose.Schema;
 //Esquema de Usuario
 
 var articleSchema = schema({
-    name: String,
     content: String,
+    authorName: String,
+    authorId: String,
     date: {
         type: Date,
         default: Date.now

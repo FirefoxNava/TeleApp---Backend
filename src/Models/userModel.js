@@ -9,8 +9,8 @@ var schema = mongoose.Schema;
 
 var userSchema = schema({
     name: String,
+    email: String,
     password: String,
-    gender: String,
     age: Number,
     profilePicture: String
 })
