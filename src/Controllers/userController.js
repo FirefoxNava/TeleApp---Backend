@@ -78,7 +78,7 @@ const userController = {
         var params = req.body
 
         try {
-            var validateName = !validator.isEmpty(params.name)
+            var validateName = !validator.isEmpty(params.email)
             var validatePassword = !validator.isEmpty(params.password)
         } catch {
             return res.status(400).send({
@@ -87,7 +87,7 @@ const userController = {
             })
         }
 
-        userModel.findOne({"name": params.name}).exec((err,queryResult)=>{
+        userModel.findOne({email: params.email}).exec((err,queryResult)=>{
 
             if(err){
                 return res.status(400).send({
@@ -152,8 +152,8 @@ const userController = {
             })
         }
     },
-    //Cambiar imagen de perfil
-    changeProfilePicture: (req, res) => {
+    //Cambiar Información
+    changeData: (req, res) => {
         var params = req.body
 
         userModel.findOne({_id: params.id}).exec((err,queryResult)=>{
@@ -173,7 +173,7 @@ const userController = {
                 const checkPassword = bcryptjs.compareSync(params.password, queryResult.password)
 
                 if (checkPassword) {
-                    userModel.updateOne({_id: params.id}, {$set: {profilePicture: params.imageUrl}}).exec((err, queryResult) => {
+                    userModel.updateOne({_id: params.id}, {$set: {profilePicture: params.imageUrl, name: params.name}}).exec((err, queryResult) => {
 
                         if (err) {
                             return res.status(400).send({
@@ -195,7 +195,7 @@ const userController = {
                 } else {
                     return res.status(400).send({
                         status: 'error',
-                        message: 'Solo le usuario dueño de la cuenta puede cambiar su imagen de perfil'
+                        message: 'Solo le usuario dueño de la cuenta puede cambiar los del perfil'
                     })
                 }
             }
