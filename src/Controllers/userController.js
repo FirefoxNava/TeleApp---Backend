@@ -53,9 +53,8 @@ const userController = {
 
                 user.password = cryptPassword
                 user.email = params.email
-                user.age = params.age
                 user.name = params.name
-                user.profilePicture = null
+                user.profilePicture = "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
 
                 user.save((err, queryResult) => {
                     if (err || !queryResult) {

@@ -17,7 +17,7 @@ const articleController = {
         var params = req.body
 
         try {
-            const validateName = !validator.isEmpty(params.name)
+            const validateName = !validator.isEmpty(params.authorName)
             const validateContent = !validator.isEmpty(params.content)
         }  catch {
             return res.status(400).send({
@@ -83,7 +83,7 @@ const articleController = {
                 } else {
                     return res.status(200).send({
                         status: 'success',
-                        queryResult
+                        article: queryResult
                     });
                 }
             })

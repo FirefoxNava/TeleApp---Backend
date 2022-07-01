@@ -24,7 +24,7 @@ articleRouter.get('/articleInfo/:id', authUtils.verifyTokenUser, articleControll
 
 articleRouter.get('/articles', authUtils.verifyTokenUser, articleController.getArticles)
 
-articleRouter.get('articleAuthor/:id', authUtils.verifyTokenUser, articleController.getArticlesByAuthorId)
+articleRouter.get('/articleAuthor/:id', authUtils.verifyTokenUser, articleController.getArticlesByAuthorId)
 
 //Exportación del modulo
 
