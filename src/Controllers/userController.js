@@ -24,7 +24,6 @@ const userController = {
             const validateName = !validator.isEmpty(params.name)
             const validateEmail = !validator.isEmpty(params.email)
             const validatePassword = !validator.isEmpty(params.password)
-            const validateAge = !validator.isEmpty(params.name)
         }  catch {
             return res.status(400).send({
                 status: 'error',

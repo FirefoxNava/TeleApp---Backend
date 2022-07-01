@@ -22,7 +22,7 @@ userRouter.post('/login', userController.loginUser)
 
 userRouter.get('/userInfo/:id', authUtils.verifyTokenUser, userController.getUser)
 
-userRouter.post('/changeImg', authUtils.verifyTokenUser, userController.changeProfilePicture)
+userRouter.post('/changeData', authUtils.verifyTokenUser, userController.changeData)
 
 //Exportación del modulo
 
